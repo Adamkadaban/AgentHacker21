@@ -902,7 +902,7 @@ ScreenManager:
         id: nE
 
     MDRectangleFlatButton:
-        text: 'Encode'
+        text: 'Encrypt'
         pos_hint: {'center_x':.3, 'center_y':.4}
         on_press: root.enc()
 
@@ -937,7 +937,7 @@ ScreenManager:
         id: nD
 
     MDRectangleFlatButton:
-        text: 'Decode'
+        text: 'Decrypt'
         pos_hint: {'center_x':.7, 'center_y':.4}
         on_press: root.dec()
 
@@ -998,7 +998,7 @@ ScreenManager:
         id: keyE
 
     MDRectangleFlatButton:
-        text: 'Encode'
+        text: 'Encrypt'
         pos_hint: {'center_x':.3, 'center_y':.5}
         on_press: root.enc()
 
@@ -1027,7 +1027,7 @@ ScreenManager:
         id: keyD
 
     MDRectangleFlatButton:
-        text: 'Decode'
+        text: 'Decrypt'
         pos_hint: {'center_x':.7, 'center_y':.5}
         on_press: root.dec()
 
@@ -1099,7 +1099,7 @@ ScreenManager:
         id: ivE
 
     MDRectangleFlatButton:
-        text: 'Encode'
+        text: 'Encrypt'
         pos_hint: {'center_x':.3, 'center_y':.4}
         on_press: root.enc()
 
@@ -1135,7 +1135,7 @@ ScreenManager:
         id: ivD
 
     MDRectangleFlatButton:
-        text: 'Decode'
+        text: 'Decrypt'
         pos_hint: {'center_x':.7, 'center_y':.4}
         on_press: root.dec()
 
