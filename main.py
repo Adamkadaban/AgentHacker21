@@ -295,6 +295,11 @@ ScreenManager:
 
 <HomeScreen>:
     name: 'home'
+    canvas.before:
+    	Rectangle:
+    		pos: self.pos
+    		size: self.size
+    		source: 
     MDLabel:
         text: 'Home'
         font_size: 32
