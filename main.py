@@ -307,10 +307,20 @@ ScreenManager:
         halign: 'center'
 
     MDLabel:
-        text: 'Encoding and Encryption have been used for decades to obfuscate and communicate data. Select an option below to learn more!'
-        pos_hint: {'center_x':.5, 'center_y':.8}
+    	text: 'Welcome trainees! Today is the beginning of your spy journey. Read below to learn more!'
+    	font_size: 15
+    	pos_hint: {'center_x':.5, 'center_y':.8}
         padding_x: 40
         halign: 'center'
+
+
+    MDLabel:
+        text: 'Encoding and Encryption have been used for decades to obfuscate and communicate data. Select an option below to learn more!'
+        font_size: 15
+        pos_hint: {'center_x':.5, 'center_y':.7}
+        padding_x: 40
+        halign: 'center'
+
 
     MDRectangleFlatButton:
         text: 'Encoding'
@@ -329,6 +339,7 @@ ScreenManager:
     
 <Encoding>:
     name: 'encoding'
+    
     MDLabel:
         text: 'Encoding'
         font_size: 32
@@ -386,6 +397,11 @@ ScreenManager:
 
 <Rot13>:
     name: 'rot13'
+    canvas.before:
+    	Rectangle:
+    		pos: self.x + 10, self.y
+    		size: self.width - 20, self.height * 4 / 10
+    		source: 'Background.png'
     inpE: inpE
     outpE: outpE
 
@@ -454,7 +470,11 @@ ScreenManager:
             root.manager.transition.direction = 'right'
 <Caesar>:
     name: 'caesar'
-
+    canvas.before:
+    	Rectangle:
+    		pos: self.x + 10, self.y
+    		size: self.width - 20, self.height * 4 / 10
+    		source: 'Background.png'
     inpE: inpE
     outpE: outpE
     offsetE: offsetE
@@ -543,6 +563,11 @@ ScreenManager:
             root.manager.transition.direction = 'right'
 <UTF>:
     name: 'utf'
+    canvas.before:
+    	Rectangle:
+    		pos: self.x + 10, self.y
+    		size: self.width - 20, self.height * 4 / 10
+    		source: 'Background.png'
     inpE: inpE
     outprE: outpE
 
@@ -609,7 +634,11 @@ ScreenManager:
             root.manager.transition.direction = 'right'
 <Base64>:
     name: 'base64'
-
+    canvas.before:
+    	Rectangle:
+    		pos: self.x + 10, self.y
+    		size: self.width - 20, self.height * 4 / 10
+    		source: 'Background.png'
     inpE: inpE
     outpE: outpE
 
@@ -678,6 +707,11 @@ ScreenManager:
             root.manager.transition.direction = 'right'
 <Hex>:
     name: 'hex'
+    canvas.before:
+    	Rectangle:
+    		pos: self.x + 10, self.y
+    		size: self.width - 20, self.height * 4 / 10
+    		source: 'Background.png'
     inpE: inpE
     outpE: outpE
 
@@ -748,7 +782,11 @@ ScreenManager:
             root.manager.transition.direction = 'right'
 <BigInt>:
     name: 'bigint'
-
+    canvas.before:
+    	Rectangle:
+    		pos: self.x + 10, self.y
+    		size: self.width - 20, self.height * 4 / 10
+    		source: 'Background.png'
     inpE: inpE
     outpE: outpE
 
@@ -856,7 +894,11 @@ ScreenManager:
 
 <RSA>:
     name: 'rsa'
-
+	canvas.before:
+    	Rectangle:
+    		pos: self.x + 10, self.y
+    		size: self.width - 20, self.height * 4 / 10
+    		source: 'Background.png'
     nD: nD
     eD: eD
     cD: cD
@@ -961,6 +1003,11 @@ ScreenManager:
 
 <AES_ECB>:
     name: 'aes_ecb'
+    canvas.before:
+    	Rectangle:
+    		pos: self.x + 10, self.y
+    		size: self.width - 20, self.height * 4 / 10
+    		source: 'Background.png'
     
     pE: pE
     keyE: keyE
@@ -1052,7 +1099,12 @@ ScreenManager:
 
 <AES_CBC>:
     name: 'aes_cbc'
-    
+    canvas.before:
+    	Rectangle:
+    		pos: self.x + 10, self.y
+    		size: self.width - 20, self.height * 4 / 10
+    		source: 'Background.png'
+
     pE: pE
     keyE: keyE
     ivE: ivE
@@ -1336,7 +1388,7 @@ sm.add_widget(AES_CBC(name = 'aes_cbc'))
 
 
 
-class CSPApp(MDApp):
+class SpyTrainerApp(MDApp):
     def build(self):
         screen = Builder.load_string(screen_helper)
         return screen
@@ -1344,4 +1396,4 @@ class CSPApp(MDApp):
 
 
 if __name__ == '__main__':
-	CSPApp().run()
+	SpyTrainerApp().run()
