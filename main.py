@@ -281,6 +281,8 @@ screen_helper = """
 
 ScreenManager:
     HomeScreen:
+    SelectionScreen:
+    RejectionScreen:
     Encoding:
     Encryption:
     Rot13:
@@ -292,7 +294,6 @@ ScreenManager:
     RSA:
     AES_ECB:
     AES_CBC:
-
 <HomeScreen>:
     name: 'home'
     canvas.before:
@@ -301,18 +302,64 @@ ScreenManager:
     		size: self.size
     		source: 
     MDLabel:
-        text: 'Home'
+        text: 'Welcome Trainees!'
         font_size: 32
         pos_hint: {'center_x':0.5, 'center_y':.9}
         halign: 'center'
 
     MDLabel:
-    	text: 'Welcome trainees! Today is the beginning of your spy journey. Read below to learn more!'
+    	text: 'Today is the beginning of your spy journey. Learn to encode, encrypt, and break your opponents ciphers.'
     	font_size: 15
     	pos_hint: {'center_x':.5, 'center_y':.8}
         padding_x: 40
         halign: 'center'
+    MDLabel:
+    	text: 'Want to learn more? Click below to agree'
+    	font_size: 15
+    	pos_hint: {'center_x':.5, 'center_y':.7}
+        padding_x: 40
+        halign: 'center'
 
+    MDRectangleFlatButton:
+        text: 'Yes!'
+        pos_hint: {'center_x':0.5,'center_y':0.5}
+        on_press: 
+            root.manager.current = 'selection'
+            root.manager.transition.direction = 'left'
+
+    MDRectangleFlatButton:
+        text: 'No.'
+        pos_hint: {'center_x':0.5,'center_y':0.4}
+        on_press: 
+            root.manager.current = 'rejection'
+            root.manager.transition.direction = 'right'
+<RejectionScreen>
+	name: 'rejection'
+	MDLabel:
+    	text: "Suit yourself. Click below if you've changed your mind."
+    	font_size: 15
+    	pos_hint: {'center_x':.5, 'center_y':.7}
+        padding_x: 40
+        halign: 'center'
+
+    MDRectangleFlatButton:
+        text: 'Yes!'
+        pos_hint: {'center_x':0.5,'center_y':0.5}
+        on_press: 
+            root.manager.current = 'home'
+            root.manager.transition.direction = 'left'
+<SelectionScreen>:
+    name: 'selection'
+    canvas.before:
+    	Rectangle:
+    		pos: self.pos
+    		size: self.size
+    		source: 
+    MDLabel:
+        text: 'Make a selection'
+        font_size: 32
+        pos_hint: {'center_x':0.5, 'center_y':.9}
+        halign: 'center'
 
     MDLabel:
         text: 'Encoding and Encryption have been used for decades to obfuscate and communicate data. Select an option below to learn more!'
@@ -328,7 +375,6 @@ ScreenManager:
         on_press: 
             root.manager.current = 'encoding'
             root.manager.transition.direction = 'left'
-
 
     MDRectangleFlatButton:
         text: 'Encryption'
@@ -1216,6 +1262,10 @@ ScreenManager:
 class HomeScreen(Screen):
     pass
 
+class SelectionScreen(Screen):
+	pass
+class RejectionScreen(Screen):
+	pass
 
 class Encoding(Screen):
     pass
@@ -1373,6 +1423,8 @@ class AES_CBC(Screen):
 # Create the screen manager
 sm = ScreenManager()
 sm.add_widget(HomeScreen(name='home'))
+sm.add_widget(SelectionScreen(name='selection'))
+sm.add_widget(RejectionScreen(name='rejection'))
 sm.add_widget(Encoding(name='encoding'))
 sm.add_widget(Encryption(name='encryption'))
 sm.add_widget(Rot13(name = 'rot13'))
