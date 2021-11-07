@@ -298,9 +298,9 @@ ScreenManager:
     name: 'home'
     canvas.before:
     	Rectangle:
-    		pos: self.pos
-    		size: self.size
-    		source: 
+    		pos: self.x + self.width / 6, self.y - 50
+    		size: (self.width / 1.5), self.height / 1.65
+    		source: 'Logo.png'
     MDLabel:
         text: 'Welcome Trainees!'
         font_size: 32
@@ -309,27 +309,27 @@ ScreenManager:
 
     MDLabel:
     	text: 'Today is the beginning of your spy journey. Learn to encode, encrypt, and break your opponents ciphers.'
-    	font_size: 15
+    	font_size: 18
     	pos_hint: {'center_x':.5, 'center_y':.8}
         padding_x: 40
         halign: 'center'
     MDLabel:
     	text: 'Want to learn more? Click below to agree'
-    	font_size: 15
+    	font_size: 18
     	pos_hint: {'center_x':.5, 'center_y':.7}
         padding_x: 40
         halign: 'center'
 
     MDRectangleFlatButton:
         text: 'Yes!'
-        pos_hint: {'center_x':0.5,'center_y':0.5}
+        pos_hint: {'center_x':0.5,'center_y':0.6}
         on_press: 
             root.manager.current = 'selection'
             root.manager.transition.direction = 'left'
 
     MDRectangleFlatButton:
         text: 'No.'
-        pos_hint: {'center_x':0.5,'center_y':0.4}
+        pos_hint: {'center_x':0.5,'center_y':0.5}
         on_press: 
             root.manager.current = 'rejection'
             root.manager.transition.direction = 'right'
@@ -337,13 +337,14 @@ ScreenManager:
 	name: 'rejection'
 	MDLabel:
     	text: "Suit yourself. Click below if you've changed your mind."
-    	font_size: 15
+    	font_size: 20
     	pos_hint: {'center_x':.5, 'center_y':.7}
         padding_x: 40
         halign: 'center'
 
     MDRectangleFlatButton:
         text: 'Yes!'
+        font_size: 20
         pos_hint: {'center_x':0.5,'center_y':0.5}
         on_press: 
             root.manager.current = 'home'
@@ -363,22 +364,24 @@ ScreenManager:
 
     MDLabel:
         text: 'Encoding and Encryption have been used for decades to obfuscate and communicate data. Select an option below to learn more!'
-        font_size: 15
-        pos_hint: {'center_x':.5, 'center_y':.7}
+        font_size: 18
+        pos_hint: {'center_x':.5, 'center_y':.8}
         padding_x: 40
         halign: 'center'
 
 
     MDRectangleFlatButton:
         text: 'Encoding'
-        pos_hint: {'center_x':0.5,'center_y':0.6}
+        font_size: 18
+        pos_hint: {'center_x':0.5,'center_y':0.7}
         on_press: 
             root.manager.current = 'encoding'
             root.manager.transition.direction = 'left'
 
     MDRectangleFlatButton:
         text: 'Encryption'
-        pos_hint: {'center_x':0.5,'center_y':0.5}
+        font_size: 18
+        pos_hint: {'center_x':0.5,'center_y':0.6}
         on_press: 
             root.manager.current = 'encryption'
             root.manager.transition.direction = 'left'
@@ -393,52 +396,60 @@ ScreenManager:
         halign: 'center'
     MDLabel:
         text: 'Encoding is something that has historically been used to obscure data. However, it is easily reversible - especially as a result of computers being able to execute so many operations so quickly. Here are a few simple examples of encoding:'
+        font_size: 18
         pos_hint: {'center_x':.5, 'center_y':.8}
         padding_x: 40
         halign: 'center'
 
     MDRectangleFlatButton:
         text: 'Rot13'
-        pos_hint: {'center_x':0.4,'center_y':0.5}
+        font_size: 18
+        pos_hint: {'center_x':0.4,'center_y':0.6}
         on_press: 
             root.manager.current = 'rot13'
             root.manager.transition.direction = 'left'
     MDRectangleFlatButton:
         text: "Caesar's Cipher"
-        pos_hint: {'center_x':0.4,'center_y':0.4}
+        font_size: 18
+        pos_hint: {'center_x':0.4,'center_y':0.5}
         on_press: 
             root.manager.current = 'caesar'
             root.manager.transition.direction = 'left'
     MDRectangleFlatButton:
         text: 'UTF-8'
-        pos_hint: {'center_x':0.4,'center_y':0.3}
+        font_size: 18
+        pos_hint: {'center_x':0.4,'center_y':0.4}
         on_press: 
             root.manager.current = 'utf'
             root.manager.transition.direction = 'left'
     MDRectangleFlatButton:
         text: 'Base64'
-        pos_hint: {'center_x':0.6,'center_y':0.5}
+        font_size: 18
+        pos_hint: {'center_x':0.6,'center_y':0.6}
         on_press: 
             root.manager.current = 'base64'
             root.manager.transition.direction = 'left'
     MDRectangleFlatButton:
         text: 'Hex'
-        pos_hint: {'center_x':0.6,'center_y':0.3}
+        font_size: 18
+        pos_hint: {'center_x':0.6,'center_y':0.4}
         on_press: 
             root.manager.current = 'hex'
             root.manager.transition.direction = 'left'
     MDRectangleFlatButton:
         text: 'Big Int'
-        pos_hint: {'center_x':0.6,'center_y':0.4}
+        font_size: 18
+        pos_hint: {'center_x':0.6,'center_y':0.5}
         on_press: 
             root.manager.current = 'bigint'
             root.manager.transition.direction = 'left'
 
     MDRectangleFlatButton:
         text: 'Back'
+        font_size: 18
         pos_hint: {'center_x':0.5,'center_y':0.1}
         on_press: 
-            root.manager.current = 'home'
+            root.manager.current = 'selection'
             root.manager.transition.direction = 'right'
 
 <Rot13>:
@@ -462,12 +473,14 @@ ScreenManager:
 
     MDLabel:
         text: 'Rot13 is a simple encoding method that shifts each character in the alphabet by 13 positions. Because 13 is half of 26 (the number of letters in the alphabet), the encoding and decoding functions are the same'
+        font_size: 18
         pos_hint: {'center_x':.5, 'center_y':.8}
         padding_x: 40
         halign: 'center'
 
     MDTextField:
         hint_text: 'Plaintext'
+        font_size: 18
         pos_hint: {'center_x':.3, 'center_y':.6}
         size_hint_x: None
         width: 200
@@ -475,11 +488,13 @@ ScreenManager:
 
     MDRectangleFlatButton:
         text: 'Encode'
+        font_size: 18
         pos_hint: {'center_x':.3, 'center_y':.5}
         on_press: root.enc()
 
     MDLabel:
         text: 'Output:'
+        font_size: 18
         halign: 'center'
         pos_hint: {'center_x':.3, 'center_y':.4}
     MDLabel:
@@ -489,6 +504,7 @@ ScreenManager:
 
     MDTextField:
         hint_text: 'Ciphertext'
+        font_size: 18
         pos_hint: {'center_x':.7, 'center_y':.6}
         size_hint_x: None
         width: 200
@@ -496,20 +512,24 @@ ScreenManager:
 
     MDRectangleFlatButton:
         text: 'Decode'
+        font_size: 18
         pos_hint: {'center_x':.7, 'center_y':.5}
         on_press: root.dec()
 
     MDLabel:
         text: 'Output:'
+        font_size: 18
         halign: 'center'
         pos_hint: {'center_x':.7, 'center_y':.4}
     MDLabel:
         id: outpD
+        font_size: 18
         halign: 'center'
         pos_hint: {'center_x':.7, 'center_y':.3}  
 
     MDRectangleFlatButton:
         text: 'Back'
+        font_size: 18
         pos_hint: {'center_x':.5, 'center_y':.1}
         on_press:
             root.manager.current = 'encoding'
@@ -537,12 +557,14 @@ ScreenManager:
 
     MDLabel:
         text: "Caesar's Cipher works the same way as rot13, but rotates 23 positions by default as a reference to the number of times Julius Caesar was stabbed. However, there are adaptations using any number as a shift. The decoding here is a bit unique in that even without a known offset, a ciphertext can still be decoded."
+        font_size: 18
         pos_hint: {'center_x':.5, 'center_y':.8}
         padding_x: 40
         halign: 'center'
 
     MDTextField:
         hint_text: 'Plaintext'
+        font_size: 18
         pos_hint: {'center_x':.3, 'center_y':.6}
         size_hint_x: None
         width: 200 
@@ -559,11 +581,13 @@ ScreenManager:
 
     MDRectangleFlatButton:
         text: 'Encode'
+        font_size: 18
         pos_hint: {'center_x':.3, 'center_y':.4}
         on_press: root.enc()
 
     MDLabel:
         text: 'Output:'
+        font_size: 18
         halign: 'center'
         pos_hint: {'center_x':.3, 'center_y':.3}
     MDLabel:
@@ -573,6 +597,7 @@ ScreenManager:
 
     MDTextField:
         hint_text: 'Ciphertext'
+        font_size: 18
         pos_hint: {'center_x':.7, 'center_y':.6}
         size_hint_x: None
         width: 200 
@@ -580,6 +605,7 @@ ScreenManager:
 
     MDTextField:
         hint_text: 'Offset'
+        font_size: 18
         helper_text: "Guesses the offset by default"
         helper_text_mode: "on_focus"
         pos_hint: {'center_x':.7, 'center_y':.5}
@@ -589,6 +615,7 @@ ScreenManager:
 
     MDRectangleFlatButton:
         text: 'Decode'
+        font_size: 18
         pos_hint: {'center_x':.7, 'center_y':.4}
         on_press: root.dec()
 
@@ -603,6 +630,7 @@ ScreenManager:
 
     MDRectangleFlatButton:
         text: 'Back'
+        font_size: 18
         pos_hint: {'center_x':.5, 'center_y':.1}
         on_press:
             root.manager.current = 'encoding'
@@ -626,12 +654,14 @@ ScreenManager:
         font_size: 32 
     MDLabel:
         text: 'UTF-8 is the standard means of electronic communication. Here, each character is assigned an integer value between 0 and 255, giving a total of 256 possible values'
+        font_size: 18
         pos_hint: {'center_x':.5, 'center_y':.8}
         padding_x: 40
         halign: 'center'
 
     MDTextField:
         hint_text: 'Plaintext'
+        font_size: 18
         pos_hint: {'center_x':.3, 'center_y':.6}
         size_hint_x: None
         width: 200
@@ -639,11 +669,13 @@ ScreenManager:
 
     MDRectangleFlatButton:
         text: 'Encode'
+        font_size: 18
         pos_hint: {'center_x':.3, 'center_y':.5}
         on_press: root.enc()
 
     MDLabel:
         text: 'Output:'
+        font_size: 18
         halign: 'center'
         pos_hint: {'center_x':.3, 'center_y':.4}
     MDLabel:
@@ -653,6 +685,7 @@ ScreenManager:
 
     MDTextField:
         hint_text: 'Ciphertext'
+        font_size: 18
         pos_hint: {'center_x':.7, 'center_y':.6}
         size_hint_x: None
         width: 200
@@ -660,11 +693,13 @@ ScreenManager:
 
     MDRectangleFlatButton:
         text: 'Decode'
+        font_size: 18
         pos_hint: {'center_x':.7, 'center_y':.5}
         on_press: root.dec()
 
     MDLabel:
         text: 'Output:'
+        font_size: 18
         halign: 'center'
         pos_hint: {'center_x':.7, 'center_y':.4}
     MDLabel:
@@ -674,6 +709,7 @@ ScreenManager:
 
     MDRectangleFlatButton:
         text: 'Back'
+        font_size: 18
         pos_hint: {'center_x':.5, 'center_y':.1}
         on_press:
             root.manager.current = 'encoding'
@@ -693,18 +729,21 @@ ScreenManager:
 
     MDLabel:
         text: 'Base64'
+        font_size: 18
         halign: 'center'
         pos_hint: {'center_x':.5, 'center_y':.9}
         font_size: 32 
 
     MDLabel:
         text: 'Base64 is an encoding mode that allows turning any kind of data, even non-human-readable text, into something that is human-readable. This only uses uppercase and lowercase letters from the english alphabet, as well as the symbols "+" and "="'
+        font_size: 18
         pos_hint: {'center_x':.5, 'center_y':.8}
         padding_x: 40
         halign: 'center'
 
     MDTextField:
         hint_text: 'Plaintext'
+        font_size: 18
         pos_hint: {'center_x':.3, 'center_y':.6}
         size_hint_x: None
         width: 200
@@ -712,11 +751,13 @@ ScreenManager:
 
     MDRectangleFlatButton:
         text: 'Encode'
+        font_size: 18
         pos_hint: {'center_x':.3, 'center_y':.5}
         on_press: root.enc()
 
     MDLabel:
         text: 'Output:'
+        font_size: 18
         halign: 'center'
         pos_hint: {'center_x':.3, 'center_y':.4}
     MDLabel:
@@ -726,6 +767,7 @@ ScreenManager:
 
     MDTextField:
         hint_text: 'Ciphertext'
+        font_size: 18
         pos_hint: {'center_x':.7, 'center_y':.6}
         size_hint_x: None
         width: 200
@@ -733,11 +775,13 @@ ScreenManager:
 
     MDRectangleFlatButton:
         text: 'Decode'
+        font_size: 18
         pos_hint: {'center_x':.7, 'center_y':.5}
         on_press: root.dec()
 
     MDLabel:
         text: 'Output:'
+        font_size: 18
         halign: 'center'
         pos_hint: {'center_x':.7, 'center_y':.4}
     MDLabel:
@@ -747,6 +791,7 @@ ScreenManager:
 
     MDRectangleFlatButton:
         text: 'Back'
+        font_size: 18
         pos_hint: {'center_x':.5, 'center_y':.1}
         on_press:
             root.manager.current = 'encoding'
@@ -774,12 +819,14 @@ ScreenManager:
 
     MDLabel:
         text: 'While humans typically count in base-10, meaning with 10 digits (0-9), hexadecimal is a format that is in base-16. Here, text can be converted into a number, and then into hex'
+        font_size: 18
         pos_hint: {'center_x':.5, 'center_y':.8}
         padding_x: 40
         halign: 'center'
 
     MDTextField:
         hint_text: 'Plaintext'
+        font_size: 18
         pos_hint: {'center_x':.3, 'center_y':.6}
         size_hint_x: None
         width: 200
@@ -787,11 +834,13 @@ ScreenManager:
 
     MDRectangleFlatButton:
         text: 'Encode'
+        font_size: 18
         pos_hint: {'center_x':.3, 'center_y':.5}
         on_press: root.enc()
 
     MDLabel:
         text: 'Output:'
+        font_size: 18
         halign: 'center'
         pos_hint: {'center_x':.3, 'center_y':.4}
     MDLabel:
@@ -801,6 +850,7 @@ ScreenManager:
 
     MDTextField:
         hint_text: 'Ciphertext'
+        font_size: 18
         pos_hint: {'center_x':.7, 'center_y':.6}
         size_hint_x: None
         width: 200
@@ -808,11 +858,13 @@ ScreenManager:
 
     MDRectangleFlatButton:
         text: 'Decode'
+        font_size: 18
         pos_hint: {'center_x':.7, 'center_y':.5}
         on_press: root.dec()
 
     MDLabel:
         text: 'Output:'
+        font_size: 18
         halign: 'center'
         pos_hint: {'center_x':.7, 'center_y':.4}
     MDLabel:
@@ -822,6 +874,7 @@ ScreenManager:
 
     MDRectangleFlatButton:
         text: 'Back'
+        font_size: 18
         pos_hint: {'center_x':.5, 'center_y':.1}
         on_press:
             root.manager.current = 'encoding'
@@ -846,12 +899,14 @@ ScreenManager:
         font_size: 32 
     MDLabel:
         text: 'BigInt is simply an encoding in which any data can be turned into a number and vice versa'
+        font_size: 18
         pos_hint: {'center_x':.5, 'center_y':.8}
         padding_x: 40
         halign: 'center'
 
     MDTextField:
         hint_text: 'Plaintext'
+        font_size: 18
         pos_hint: {'center_x':.3, 'center_y':.6}
         size_hint_x: None
         width: 200
@@ -859,11 +914,13 @@ ScreenManager:
 
     MDRectangleFlatButton:
         text: 'Encode'
+        font_size: 18
         pos_hint: {'center_x':.3, 'center_y':.5}
         on_press: root.enc()
 
     MDLabel:
         text: 'Output:'
+        font_size: 18
         halign: 'center'
         pos_hint: {'center_x':.3, 'center_y':.4}
     MDLabel:
@@ -873,6 +930,7 @@ ScreenManager:
 
     MDTextField:
         hint_text: 'Ciphertext'
+        font_size: 18
         pos_hint: {'center_x':.7, 'center_y':.6}
         size_hint_x: None
         width: 200
@@ -880,11 +938,13 @@ ScreenManager:
 
     MDRectangleFlatButton:
         text: 'Decode'
+        font_size: 18
         pos_hint: {'center_x':.7, 'center_y':.5}
         on_press: root.dec()
 
     MDLabel:
         text: 'Output:'
+        font_size: 18
         halign: 'center'
         pos_hint: {'center_x':.7, 'center_y':.4}
     MDLabel:
@@ -894,6 +954,7 @@ ScreenManager:
 
     MDRectangleFlatButton:
         text: 'Back'
+        font_size: 18
         pos_hint: {'center_x':.5, 'center_y':.1}
         on_press:
             root.manager.current = 'encoding'
@@ -908,11 +969,13 @@ ScreenManager:
         font_size: 32 
     MDLabel:
         text: 'Encryption is similar to encoding, but is much harder to reverse, unless one has all the necessary keys and informations. Here are a few simple examples of encryption:'
+        font_size: 18
         pos_hint: {'center_x':.5, 'center_y':.8}
         padding_x: 40
         halign: 'center'
     MDRectangleFlatButton:
         text: 'RSA'
+        font_size: 18
         pos_hint: {'center_x':0.5,'center_y':0.6}
         on_press: 
             root.manager.current = 'rsa'
@@ -920,12 +983,14 @@ ScreenManager:
 
     MDRectangleFlatButton:
         text: 'AES ECB'
+        font_size: 18
         pos_hint: {'center_x':0.5,'center_y':0.5}
         on_press: 
             root.manager.current = 'aes_ecb'
             root.manager.transition.direction = 'left'
     MDRectangleFlatButton:
         text: 'AES CBC'
+        font_size: 18
         pos_hint: {'center_x':0.5,'center_y':0.4}
         on_press: 
             root.manager.current = 'aes_cbc'
@@ -933,9 +998,10 @@ ScreenManager:
 
     MDRectangleFlatButton:
         text: 'Back'
+        font_size: 18
         pos_hint: {'center_x':0.5,'center_y':0.1}
         on_press: 
-            root.manager.current = 'home'
+            root.manager.current = 'selection'
             root.manager.transition.direction = 'right'
 
 <RSA>:
@@ -964,6 +1030,7 @@ ScreenManager:
         font_size: 32 
     MDLabel:
         text: "RSA - named after Rivest, Shamir, Adleman - is an encryption system that relies on the complexity of large prime numbers in order to be secure."
+        font_size: 18
         pos_hint: {'center_x':.5, 'center_y':.8}
         padding_x: 40
         halign: 'center'
@@ -991,6 +1058,7 @@ ScreenManager:
 
     MDRectangleFlatButton:
         text: 'Encrypt'
+        font_size: 18
         pos_hint: {'center_x':.3, 'center_y':.4}
         on_press: root.enc()
 
@@ -1026,6 +1094,7 @@ ScreenManager:
 
     MDRectangleFlatButton:
         text: 'Decrypt'
+        font_size: 18
         pos_hint: {'center_x':.7, 'center_y':.4}
         on_press: root.dec()
 
@@ -1041,6 +1110,7 @@ ScreenManager:
 
     MDRectangleFlatButton:
         text: 'Back'
+        font_size: 18
         pos_hint: {'center_x':.5, 'center_y':.1}
         on_press:
             root.manager.current = 'encryption'
@@ -1072,6 +1142,7 @@ ScreenManager:
         font_size: 32 
     MDLabel:
         text: "AES - the Advanced Encryption Standard - is an efficient cipher that works with fixed-length 'blocks' rather than with the whole input at a time. ECB (Electronic Codebook) is one of simplest, and thus insecure, modes of operation"
+        font_size: 18
         pos_hint: {'center_x':.5, 'center_y':.8}
         padding_x: 40
         halign: 'center'
@@ -1092,11 +1163,13 @@ ScreenManager:
 
     MDRectangleFlatButton:
         text: 'Encrypt'
+        font_size: 18
         pos_hint: {'center_x':.3, 'center_y':.5}
         on_press: root.enc()
 
     MDLabel:
         text: 'Ciphertext'
+        font_size: 18
         halign: 'center'
         pos_hint: {'center_x':.3, 'center_y':.4}
 
@@ -1121,6 +1194,7 @@ ScreenManager:
 
     MDRectangleFlatButton:
         text: 'Decrypt'
+        font_size: 18
         pos_hint: {'center_x':.7, 'center_y':.5}
         on_press: root.dec()
 
@@ -1137,6 +1211,7 @@ ScreenManager:
 
     MDRectangleFlatButton:
         text: 'Back'
+        font_size: 18
         pos_hint: {'center_x':.5, 'center_y':.1}
         on_press:
             root.manager.current = 'encryption'
@@ -1171,85 +1246,92 @@ ScreenManager:
         font_size: 32 
     MDLabel:
         text: "AES - the Advanced Encryption Standard - is an efficient cipher that works with fixed-length 'blocks' rather than with the whole input at a time. CBC (Cipher Block Chaining) is a slightly more complicated form of encryption that uses a series of xor procedures to make encryption of each block appear more random."
+        font_size: 18
         pos_hint: {'center_x':.5, 'center_y':.8}
         padding_x: 40
         halign: 'center'
 
     MDTextField:
         hint_text: 'Plaintext'
-        pos_hint: {'center_x':.3, 'center_y':.7}
+        font_size: 18
+        pos_hint: {'center_x':.3, 'center_y':.6}
         size_hint_x: None
         width: 200 
         id: pE
 
     MDTextField:
         hint_text: 'Key'
-        pos_hint: {'center_x':.3, 'center_y':.6}
+        pos_hint: {'center_x':.3, 'center_y':.5}
         size_hint_x: None
         width: 200 
         id: keyE
 
     MDTextField:
         hint_text: 'IV'
-        pos_hint: {'center_x':.3, 'center_y':.5}
+        pos_hint: {'center_x':.3, 'center_y':.4}
         size_hint_x: None
         width: 200 
         id: ivE
 
     MDRectangleFlatButton:
         text: 'Encrypt'
-        pos_hint: {'center_x':.3, 'center_y':.4}
+        font_size: 18
+        pos_hint: {'center_x':.3, 'center_y':.3}
         on_press: root.enc()
 
     MDLabel:
         text: 'Ciphertext'
+        font_size: 18
         halign: 'center'
-        pos_hint: {'center_x':.3, 'center_y':.3}
+        pos_hint: {'center_x':.3, 'center_y':.2}
 
     MDLabel:
         id: outpE
         halign: 'center'
-        pos_hint: {'center_x':.7, 'center_y':.2} 
+        pos_hint: {'center_x':.7, 'center_y':.1} 
 
     MDTextField:
         hint_text: 'Ciphertext'
-        pos_hint: {'center_x':.7, 'center_y':.7}
+        pos_hint: {'center_x':.7, 'center_y':.6}
         size_hint_x: None
         width: 200 
         id: cD
 
     MDTextField:
         hint_text: 'Key'
-        pos_hint: {'center_x':.7, 'center_y':.6}
+        pos_hint: {'center_x':.7, 'center_y':.5}
         size_hint_x: None
         width: 200 
         id: keyD
 
     MDTextField:
         hint_text: 'IV'
-        pos_hint: {'center_x':.7, 'center_y':.5}
+        pos_hint: {'center_x':.7, 'center_y':.4}
         size_hint_x: None
         width: 200 
         id: ivD
 
     MDRectangleFlatButton:
         text: 'Decrypt'
-        pos_hint: {'center_x':.7, 'center_y':.4}
+        font_size: 18
+        pos_hint: {'center_x':.7, 'center_y':.3}
         on_press: root.dec()
 
     MDLabel:
         text: 'Plaintext'
+        font_size: 18
         halign: 'center'
-        pos_hint: {'center_x':.7, 'center_y':.3}
+        pos_hint: {'center_x':.7, 'center_y':.2}
         
     MDLabel:
         id: outpD
         halign: 'center'
-        pos_hint: {'center_x':.7, 'center_y':.2} 
+        pos_hint: {'center_x':.7, 'center_y':.1} 
 
 
     MDRectangleFlatButton:
         text: 'Back'
+        font_size: 18
         pos_hint: {'center_x':.5, 'center_y':.1}
         on_press:
             root.manager.current = 'encryption'
