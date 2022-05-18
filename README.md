@@ -7,7 +7,7 @@ We made SpyTrainer a way to learn about encoding, decoding, encrypting, and decr
 ## What it does
 Our home screen starts having the user select between encoding and encryption. If encoding is selected, the next screen shows six different encoding methods. The encoding techniques are Caesar’s Cipher, Rot13, UTF-8, Base 64, Hex, and Big Int. After making the selection of the encoding process they would like to use, they can read a short description teaching them about how the process works before typing in phrases to test it for themselves. After, they can also decode the message they just typed in to see that the encoding and decoding process successfully work.
 
-## The encryption aspect of the platform works similarly with the user having the choice between RSA, Advanced Encryption Standard Electronic Code Block(AES ECB), and Advanced Encryption Standard Cipher-Block Chaining(AES CBC). In addition, the program also has 3 attacks: the Chinese Remainder Theorem, Coppersmith attack, and the dachshund attack that will be selected based on the user's input that is given.
+The encryption aspect of the platform works similarly with the user having the choice between RSA, Advanced Encryption Standard Electronic Code Block(AES ECB), and Advanced Encryption Standard Cipher-Block Chaining(AES CBC). In addition, the program also has 3 attacks: the Chinese Remainder Theorem, Coppersmith attack, and the dachshund attack that will be selected based on the user's input that is given.
 
 ## How we built it
 We used the kivy module to create a graphical user interface that can not only be used on the computer, but also exported onto a phone as an mobile app. For the cryptography aspect, we utilized the python cryptodome module as well as our implementations of attacks on known vulnerabilities.
@@ -23,3 +23,5 @@ To make this platform, we had to learn a lot about cryptography since we did not
 
 ## What's next for SpyTrainer
 In the future, we want to add more RSA attacks, in addition to the Chinese Remainder Theorem, Coppersmith attack, and the dachshund attack. We would also like to add a page where users can work on creating their own encoding techniques that are not already on there. Lastly, we would expand the length of the text that can be imputed and generate a frequency analysis tool to test for simple substitution ciphers.
+
+Try it now: [SpyTrainer.co](SpyTrainer.co)
